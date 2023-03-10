@@ -9,10 +9,11 @@ import Foundation
 
 var PlayerInput = String()
 var PlayerName = String()
-var HP : Int = 100
+var HP : Int = 60
+var MaxHP: Int = 100
 var MP : Int = 50
 var Potion : Int = 10
-var Elixir : Int = 5
+var Elixir : Int = 10
 
 let OpeningScreen  = """
 Welcome to a world of magic 🧙🏿‍♂️
@@ -35,7 +36,7 @@ Or.. you can choose where you want to go
 [Q]uit the game
 """
 
-let PlayerStatScreen = """
+var PlayerStatScreen = """
 Player Name : \(PlayerName)
 
 HP : \(HP)/100
@@ -53,6 +54,13 @@ Items :
 Press [Return] to go back :
 """
 
+//var HealWoundScreen = """
+//Your HP is \(HP).
+//You have \(Potion) Potions.
+//
+//Are you sure you want to use 1 potion to heal wound? [Y/N]
+//"""
+
 for _ in 1... {
     print(OpeningScreen)
     let PlayerInput = readLine()
@@ -66,6 +74,54 @@ PlayerName = readLine()!
 print("")
 print("Nice to meet you \(PlayerName)!")
 
+var isRunning = true
 
+while isRunning {
+    print(JourneyScreen)
+    let input = readLine() ?? ""
+    switch input.uppercased() {
+    case "C":
+        for _ in 1... {
+            print(PlayerStatScreen)
+            let PlayerInput = readLine()
+            if PlayerInput == ""{
+                break // exit the loop if user inputs a blank line
+            }
+        }
+    case "H":
+        if HP == MaxHP {
+                    print("You don't need to use any potion right now. Your HP is already full.")
+                } else {
+                    let HealWoundScreen = """
+                    Player Name : \(PlayerName)
+
+                    Your current HP is \(HP).
+                    You have \(Potion) Potions.
+
+                    Are you sure you want to use 1 potion to heal wound? [Y/N]
+                    """
+                    print(HealWoundScreen)
+                    if let choice = readLine()?.uppercased(), choice == "Y" && Potion > 0 {
+                        HP += 20
+                        if HP > MaxHP {
+                            HP = MaxHP
+                        }
+                        Potion -= 1
+                        print("Your HP is now \(HP).")
+                    } else {
+                        print("You chose not to use any potion.")
+                    }
+                }
+    case "F":
+        print("Heading to the forest...")
+    case "M":
+        print("Heading to mountain of golem...")
+    case "Q":
+        print("Thankyou for playing, Quitting the game...")
+        isRunning = false
+    default:
+        print("Invalid input, please try again.")
+    }
+}
 
 
