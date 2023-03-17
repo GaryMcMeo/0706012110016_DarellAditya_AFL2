@@ -100,6 +100,13 @@ func getName() -> String {
     }
 }
 
+//var HealWoundScreen = """
+//Your HP is \(HP).
+//You have \(Potion) Potions.
+//
+//Are you sure you want to use 1 potion to heal wound? [Y/N]
+//"""
+
 for _ in 1... {
     print(OpeningScreen)
     let PlayerInput = readLine()
@@ -136,7 +143,7 @@ while isRunning {
                         Player Name : \(PlayerName)
                         
                         Your current HP is \(HP).
-                        You have (Potion) Potions.
+                        You have \(Potion) Potions.
                         
                         Are you sure you want to use 1 potion to heal wound? [Y/N]
                         """
