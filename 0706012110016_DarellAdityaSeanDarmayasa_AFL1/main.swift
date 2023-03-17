@@ -143,7 +143,7 @@ while isRunning {
                         Player Name : \(PlayerName)
                         
                         Your current HP is \(HP).
-                        You have \(Potion) Potions.
+                        You have \(items[0]) Potions.
                         
                         Are you sure you want to use 1 potion to heal wound? [Y/N]
                         """
