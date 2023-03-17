@@ -9,79 +9,76 @@ import Foundation
 
 var PlayerInput = String()
 var PlayerName = String()
-var HP : Int = 100
+var HP : Int = 50
 var MaxHP: Int = 100
-var MP : Int = 100
+var MP : Int = 50
 var MaxMP : Int = 50
 var items = [20,20]
 var isRunning = true
 var playerTurn = true
 
 let OpeningScreen  = """
-Welcome to a world of magic 🧙🏿‍♂️
+    Welcome to a world of magic 🧙🏿‍♂️
 
-You have been chosen to embark on an epic journey as a young wizard  on the path to becoming a master of the arcane arts. Your adventure will take you through forests 🌲, Mountains 🗻, and dungeon 🏰, where you will face challenges, make allies, and fight enemies
+    You have been chosen to embark on an epic journey as a young wizard  on the path to becoming a master of the arcane arts. Your adventure will take you through forests 🌲, Mountains 🗻, and dungeon 🏰, where you will face challenges, make allies, and fight enemies
 
-Press [Return] to continue:
+    Press [Return] to continue:
 """
 
 let JourneyScreen = """
-From here, you can...
+    From here, you can...
 
-[C]heck your health and stats
-[H]eal your wounds with potion
-[R]egen your mana with elixir
+    [C]heck your health and stats
+    [H]eal your wounds with potion
+    [R]egen your mana with elixir
 
-Or.. you can choose where you want to go
+    Or.. you can choose where you want to go
 
-[F]orest or trolls
-[M]ountain of golem
-[Q]uit the game
+    [F]orest or trolls
+    [M]ountain of golem
+    [Q]uit the game
 
-Whats your choice?
+    Whats your choice?
 """
 
 func PlayerStatScreen(){
     print("""
-Player Name : \(PlayerName)
+    Player Name : \(PlayerName)
 
-HP : \(HP)/100
-MP : \(MP)/50
+    HP : \(HP)/100
+    MP : \(MP)/50
 
-Magic :
-- Blade of Despair. Uses no MP. Deal 5pt of damage.
-- Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
-- Shield of Athena. Uses 10ot of MP. Block all enemy's attack for 1 turn.
+    Magic :
+    - Blade of Despair. Uses no MP. Deal 5pt of damage.
+    - Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
+    - Shield of Athena. Uses 10ot of MP. Block all enemy's attack for 1 turn.
 
-Items :
-- Potion x\(items[0]). Heals 20pt to your HP
-- Elixir x\(items[1]). Adds 10pt to your MP
+    Items :
+    - Potion x\(items[0]). Heals 20pt to your HP
+    - Elixir x\(items[1]). Adds 10pt to your MP
 
-Press [Return] to go back :
+    Press [Return] to go back :
 """)
 }
 
-
-
-//mountain
 func mountain(){
     print("""
-As you make your way through the rugged mountain terrain, you can feel the chill of the wind bitting at your skin. suddenly, you hear a sound that makes you freeze in your tracks.That's when you see it - a massive, snarling
-Golem emerging from the shadows.
+    As you make your way through the rugged mountain terrain, you can feel the chill of the wind bitting at your skin. suddenly, you hear a sound that makes you freeze in your tracks.That's when you see it - a massive, snarling
+    Golem emerging from the shadows.
 
- 😈 Golem name : Bhordac The Golem
- 😈 Health : You might have to scan him for further details.
+    😈 Golem name : Bhordac The Golem
+    😈 Health : You might have to scan him for further details.
  
- Choose your action :
- [1] Blade of Despair. Uses no MP. Deal 5pt of damage.
- [2] Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
- [3] Shield of Athena. Uses 10ot of MP. Block all enemy's attack for 1 turn.
+    Choose your action :
+    [1] Blade of Despair. Uses no MP. Deal 5pt of damage.
+    [2] Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
+    [3] Shield of Athena. Uses 10ot of MP. Block all enemy's attack for 1 turn.
  
- [4] Use potion to heal wound
- [5] Scan enemy's vital
- [6] Flee from battle
+    [4] Use potion to heal wound
+    [5] Scan enemy's vital
+    [6] Flee from battle
  
- Whats your choice
+    Whats your choice
 """)
 }
 
@@ -100,18 +97,12 @@ func getName() -> String {
     }
 }
 
-//var HealWoundScreen = """
-//Your HP is \(HP).
-//You have \(Potion) Potions.
-//
-//Are you sure you want to use 1 potion to heal wound? [Y/N]
-//"""
-
+//Loops opening screen untils user inputs return
 for _ in 1... {
     print(OpeningScreen)
     let PlayerInput = readLine()
     if PlayerInput == ""{
-        break // exit the loop if user inputs a blank line
+        break // Exit the loop if user inputs a blank line
     }
 }
 
@@ -120,7 +111,7 @@ PlayerName = getName()
 print("")
 print("Nice to meet you \(PlayerName)!")
 
-
+//Loops the game until user exits the game
 while isRunning {
     print(JourneyScreen)
     let input = readLine() ?? ""
@@ -133,6 +124,7 @@ while isRunning {
                 break // exit the loop if user inputs a blank line
             }
         }
+        
     case "H":
         if HP == MaxHP {
             print("You don't need to use any potion right now. Your HP is already full.")
@@ -200,16 +192,17 @@ while isRunning {
                 }
             } while !inputRegen
         }
+        
     case "F":
         playerTurn = true
         var trollHealth = 150
         print("Heading to the forest...")
         print("As you enter the forest, you feel a sense of unease wash over you. Suddenly, you hear the sound of twigs snapping behind you, you quickly spin around, and find a Troll emerging from the shadows.")
         
+        //Loops the forest battle screen while playerturn is still true and player hasnt defeated opponent
         while playerTurn==true {
             if playerTurn {
                 print("""
-                     
                       😈 Troll name: Gunnar The Troll
                       😈 Health: You might have to scan him for further details.
                      
@@ -225,6 +218,7 @@ while isRunning {
                       
                       Whats your choice?
                      """)
+                
                 if let choice = readLine() {
                     switch choice {
                     case "1":
@@ -271,6 +265,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
+                        
                     case "5":
                         if items[1] > 0 {
                             MP += 10
@@ -283,6 +278,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
+                        
                     case "6":
                         print("Gunnar the Troll\nHP: \(trollHealth)")
                         continue
@@ -329,10 +325,10 @@ while isRunning {
         print("Heading to the mountain...")
         print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind bitting at your skin. suddenly, you hear a sound that makes you freeze in your tracks.That's when you see it - a massive, snarling Golem emerging from the shadows.")
         
+        //loops the forest battle screen while playerturn is still true and player hasnt defeated opponent
         while playerTurn==true {
             if playerTurn {
                 print("""
-                     
                       😈 Golem name : Bhordac The Golem
                       😈 Health : You might have to scan him for further details.
                      
@@ -394,6 +390,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
+                        
                     case "5":
                         if items[1] > 0 {
                             MP += 10
@@ -406,6 +403,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
+                        
                     case "6":
                         print("Bhordac the Golem\nHP: \(golemHealth)")
                         continue
