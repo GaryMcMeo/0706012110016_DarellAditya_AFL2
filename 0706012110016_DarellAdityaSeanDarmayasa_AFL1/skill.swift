@@ -2,7 +2,7 @@
 //  skill.swift
 //  0706012110016_DarellAdityaSeanDarmayasa_AFL1
 //
-//  Created by MacBook Pro on 06/04/23.
+//  Created by MacBook Pro on 01/04/23.
 //
 
 import Foundation
@@ -45,7 +45,7 @@ class DivineJudgement: Skill {
         User.MP -= 15
         Monster.enemyHP -= damage
     }
-
+    
 }
 
 class ShieldOfAthena: Skill {

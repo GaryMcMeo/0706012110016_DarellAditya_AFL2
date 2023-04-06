@@ -29,7 +29,7 @@ func OpeningScreen(){
 }
 
 func JourneyScreen(){
-   print("""
+    print("""
     From here, you can...
 
     [C]heck your health and stats
@@ -156,38 +156,38 @@ while isRunning {
         var showhp = "You might have to scan him for further details."
         print("Heading to the forest...")
         print("As you enter the forest, you feel a sense of unease wash over you. Suddenly, you hear the sound of twigs snapping behind you, you quickly spin around, and find a Troll emerging from the shadows.")
-
+        
         //Loops the forest battle screen while playerturn is still true and player hasnt defeated opponent
         while playerTurn==true {
             if playerTurn {
                 if scanned == true {
-                   showhp = String(enemy.enemyHP)
+                    showhp = String(enemy.enemyHP)
                 }else{
-                   showhp = "You might have to scan him for further details."
+                    showhp = "You might have to scan him for further details."
                 }
                 print("""
                       😈 Enemy: \(enemy.enemyStatus) \(enemy.enemyName)
                       😈 Health: \(showhp)
-
+                     
                          Choose your action :
                       [1] Blade of Despair. Uses no MP. Deal 5pt of damage.
                       [2] Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
                       [3] Shield of Athena. Uses 10of of MP. Block all enemy's attack for 1 turn.
-
+                     
                       [4] Use potion to heal wound
                       [5] Use elixir to regenerate mana
                       [6] Scan enemy's vital
                       [7] Flee from battle
-
+                     
                       Whats your choice?
                      """)
-
+                
                 if let choice = readLine() {
                     switch choice {
                     case "1":
                         bod.AttackMelee(player: User, Monster: enemy)
                         enemy.enemyAttack(player: User)
-
+                        
                     case "2":
                         if User.MP >= 15 {
                             dj.AttackSkill(player: User, Monster: enemy)
@@ -196,7 +196,7 @@ while isRunning {
                             print("You don't have enough MP to use Divine Judgement.")
                             continue
                         }
-
+                        
                     case "3":
                         if User.MP >= 10 {
                             block.Shield(player: User, Monster: enemy)
@@ -204,7 +204,7 @@ while isRunning {
                             print("You don't have enough MP to use Shield of Athena.")
                             continue
                         }
-
+                        
                     case "4":
                         if User.HP == 100 {
                             print("You don't need to use any potion right now. Your HP is already full.")
@@ -215,7 +215,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
-
+                        
                     case "5":
                         if User.MP == 50 {
                             print("You don't need to use any Elixir right now. Your MP is already full.")
@@ -226,12 +226,12 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
-
+                        
                     case "6":
                         print("You Scanned Him For More Information")
                         scanned = true
                         continue
-
+                        
                     case "7":
                         flee()
                         if let choice = readLine(), choice.isEmpty {
@@ -241,11 +241,11 @@ while isRunning {
                         } else {
                             print("Invalid choice!")
                         }
-
+                        
                     default:
                         print("Invalid choice")
                     }
-
+                    
                     if enemy.enemyHP <= 0 {
                         print("You have defeated \(enemy.enemyStatus) \(enemy.enemyName)")
                         if let drop = enemy.dropItem() {
@@ -264,14 +264,14 @@ while isRunning {
                     } else if User.HP <= 0 {
                         enemy.enemywins(player: User)
                     }
-
+                    
                     // Back to the journey screen...
                     print(" ")
                 }
-
+                
             }
         }
-
+        
     case "M":
         var chance = Int.random(in: 1...100)
         playerTurn = true
@@ -281,29 +281,29 @@ while isRunning {
         var showhp = "You might have to scan him for further details."
         print("Heading to the mountain...")
         print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind bitting at your skin. suddenly, you hear a sound that makes you freeze in your tracks.That's when you see it - a massive, snarling Golem emerging from the shadows.")
-
+        
         //loops the forest battle screen while playerturn is still true and player hasnt defeated opponent
         while playerTurn==true {
             if playerTurn {
                 if scanned == true {
-                   showhp = String(enemy.enemyHP)
+                    showhp = String(enemy.enemyHP)
                 }else{
-                   showhp = "You might have to scan him for further details."
+                    showhp = "You might have to scan him for further details."
                 }
                 print("""
                       😈 Enemy: \(enemy.enemyStatus) \(enemy.enemyName)
                       😈 Health: \(showhp)
-
+                     
                          Choose your action :
                       [1] Blade of Despair. Uses no MP. Deal 5pt of damage.
                       [2] Divine Judgement. Uses 15pt of MP. Deal 50pt of damage
                       [3] Shield of Athena. Uses 10ot of MP. Block all enemy's attack for 1 turn.
-
+                     
                       [4] Use potion to heal wound
                       [5] Use elixir to regenerate mana
                       [6] Scan enemy's vital
                       [7] Flee from battle
-
+                     
                       Whats your choice?
                      """)
                 if let choice = readLine() {
@@ -311,7 +311,7 @@ while isRunning {
                     case "1":
                         bod.AttackMelee(player: User, Monster: enemy)
                         enemy.enemyAttack(player: User)
-
+                        
                     case "2":
                         if User.MP >= 15 {
                             dj.AttackSkill(player: User, Monster: enemy)
@@ -320,7 +320,7 @@ while isRunning {
                             print("You don't have enough MP to use Divine Judgement.")
                             continue
                         }
-
+                        
                     case "3":
                         if User.MP >= 10 {
                             block.Shield(player: User, Monster: enemy)
@@ -328,7 +328,7 @@ while isRunning {
                             print("You don't have enough MP to use Shield of Athena.")
                             continue
                         }
-
+                        
                     case "4":
                         if User.HP == 100 {
                             print("You don't need to use any potion right now. Your HP is already full.")
@@ -339,7 +339,7 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
-
+                        
                     case "5":
                         if User.MP == 50 {
                             print("You don't need to use any Elixir right now. Your MP is already full.")
@@ -350,12 +350,12 @@ while isRunning {
                             print("You don't have any potion left.")
                             continue
                         }
-
+                        
                     case "6":
                         print("You Scanned Him For More Information")
                         scanned = true
                         continue
-
+                        
                     case "7":
                         flee()
                         if let choice = readLine(), choice.isEmpty {
@@ -365,11 +365,11 @@ while isRunning {
                         } else {
                             print("Invalid choice!")
                         }
-
+                        
                     default:
                         print("Invalid choice!")
                     }
-
+                    
                     if enemy.enemyHP <= 0 {
                         print("You have defeated \(enemy.enemyStatus) \(enemy.enemyName)")
                         if let drop = enemy.dropItem() {
@@ -388,11 +388,11 @@ while isRunning {
                     } else if User.HP <= 0 {
                         enemy.enemywins(player: User)
                     }
-
+                    
                     // Back to the journey screen...
                     print(" ")
                 }
-
+                
             }
         }
         
