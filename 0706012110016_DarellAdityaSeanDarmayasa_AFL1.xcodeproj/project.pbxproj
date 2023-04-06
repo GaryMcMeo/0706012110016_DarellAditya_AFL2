@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0472106429DD750B005A5B4B /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472106329DD750B005A5B4B /* user.swift */; };
+		0472106829DD762A005A5B4B /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472106729DD762A005A5B4B /* items.swift */; };
+		0472106E29DEB328005A5B4B /* skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472106D29DEB328005A5B4B /* skill.swift */; };
+		0472107629DED170005A5B4B /* enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472107529DED170005A5B4B /* enemy.swift */; };
 		04D2DEAE29AE41CF00692EAA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2DEAD29AE41CF00692EAA /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0472106329DD750B005A5B4B /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		0472106729DD762A005A5B4B /* items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
+		0472106D29DEB328005A5B4B /* skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skill.swift; sourceTree = "<group>"; };
+		0472107529DED170005A5B4B /* enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enemy.swift; sourceTree = "<group>"; };
 		04D2DEAA29AE41CF00692EAA /* 0706012110016_DarellAdityaSeanDarmayasa_AFL1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 0706012110016_DarellAdityaSeanDarmayasa_AFL1; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D2DEAD29AE41CF00692EAA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				04D2DEAD29AE41CF00692EAA /* main.swift */,
+				0472106329DD750B005A5B4B /* user.swift */,
+				0472106D29DEB328005A5B4B /* skill.swift */,
+				0472106729DD762A005A5B4B /* items.swift */,
+				0472107529DED170005A5B4B /* enemy.swift */,
 			);
 			path = 0706012110016_DarellAdityaSeanDarmayasa_AFL1;
 			sourceTree = "<group>";
@@ -120,7 +132,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0472107629DED170005A5B4B /* enemy.swift in Sources */,
+				0472106429DD750B005A5B4B /* user.swift in Sources */,
 				04D2DEAE29AE41CF00692EAA /* main.swift in Sources */,
+				0472106E29DEB328005A5B4B /* skill.swift in Sources */,
+				0472106829DD762A005A5B4B /* items.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
